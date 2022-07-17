@@ -325,14 +325,14 @@ function sex()
             end
         end)
 
-        autofarmtab:Textbox("เลือกเวฟเพื่อขายอัตโนมัติ {กรุณาใส่ }", getgenv().sellatwave, false, function(t)
+        autofarmtab:Textbox("Select Wave Number for Auto Sell {Press Enter}", getgenv().sellatwave, false, function(t)
             getgenv().sellatwave = tonumber(t)
             updatejson()
         end)
 
         
 
-        local worlddrop = autofarmtab:Dropdown("เลือกด่าน", {"Plannet Namak", "Shiganshinu District", "Snowy Town","Hidden Sand Village", "Marine's Ford"}, getgenv().world, function(world)
+        local worlddrop = autofarmtab:Dropdown("Select World", {"Plannet Namak", "Shiganshinu District", "Snowy Town","Hidden Sand Village", "Marine's Ford"}, getgenv().world, function(world)
             getgenv().world = world
             updatejson()
             if world == "Plannet Namak" then
@@ -379,18 +379,18 @@ function sex()
             end
         end)
 
-        getgenv().leveldrop = autofarmtab:Dropdown("เลือก Level", getgenv().levels, getgenv().level, function(level)
+        getgenv().leveldrop = autofarmtab:Dropdown("Select Level", getgenv().levels, getgenv().level, function(level)
             getgenv().level = level
             updatejson()
         end)
 
-        getgenv().diff = autofarmtab:Dropdown("เลือก ความยาก", {"ปกติ", "ยาก"}, getgenv().difficulty, function(diff)
+        getgenv().diff = autofarmtab:Dropdown("Select Difficulty", {"Normal", "Hard"}, getgenv().difficulty, function(diff)
             getgenv().difficulty = diff
             updatejson()
         end)
 
 		local webhooktab = serv:Channel("Webhook")
-		webhooktab:Label("Webhook ส่งการแจ้งเตือนเมื่อ\nเกมได้สิ้นสุดลง!")
+		webhooktab:Label("Webhook sends notification in discord everytime\nGame is Finished!")
 		
 		local webhoolPlaceholder
 		if getgenv().weburl == "" then
@@ -398,7 +398,7 @@ function sex()
 		else
 			webhoolPlaceholder = getgenv().weburl
 		end
-		webhooktab:Textbox("Webhook URL {กรุณาใส่ url ที่นี่}" , webhoolPlaceholder, false, function(web_url)
+		webhooktab:Textbox("Webhook URL {Press Enter}" , webhoolPlaceholder, false, function(web_url)
             getgenv().weburl = web_url
             updatejson()
         end)
@@ -528,7 +528,7 @@ function sex()
 		webhooktab:Label("Webhook sends notification in discord everytime game Finishes.")
 		local webhoolPlaceholder
 		if getgenv().weburl == "" then
-			webhoolPlaceholder = "ใส่ url ตรงนี้!"
+			webhoolPlaceholder = "Insert url here!"
 		else
 			webhoolPlaceholder = getgenv().weburl
 		end
@@ -536,7 +536,7 @@ function sex()
             getgenv().weburl = web_url
             updatejson()
         end)
-        webhooktab:Button("ทดสอบ Webhook", function()
+        webhooktab:Button("Test Webhook", function()
             webhook()
         end)
 
@@ -636,7 +636,7 @@ else
         autofarm = false,
         autostart = false,
         autoupgrade = false,
-        difficulty = "ปกติ",
+        difficulty = "Normal",
         world = "nil",
         level = "nil",
         door = "nil",
