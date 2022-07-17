@@ -16,6 +16,3 @@ for i , v in pairs(codes) do
     game:GetService("ReplicatedStorage").endpoints.client_to_server.redeem_code:InvokeServer(v)
     wait()
 end
-
------
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Curelzx/.../main/AutoCode", true))()
